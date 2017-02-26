@@ -14,13 +14,13 @@ TARGET = testpid
 all: $(TARGET)
 
 $(TARGET): $(OBJS)
-	$(CC) -lpthread -o $(TARGET) $(OBJS)
+	$(CC) -lpthread -pthread -o $(TARGET) $(OBJS)
 
 pid.o: pid.c pid.h
 	$(CC) $(CFLAGS) pid.c
 
 test.o: test.c pid.h
-	$(CC) -lpthread $(CFLAGS) test.c
+	$(CC) -lpthread -pthread $(CFLAGS) test.c
 
 clean:
 	$(RM) *.o *~ $(TARGET)

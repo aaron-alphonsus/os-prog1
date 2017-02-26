@@ -11,16 +11,16 @@ TARGET = sleepingta
 all: $(TARGET)
 
 $(TARGET): $(OBJS)
-	$(CC) -lpthread -o $(TARGET) $(OBJS)
+	$(CC) -lpthread -pthread -o $(TARGET) $(OBJS)
 
 main.o: main.c ta.h
-	$(CC) -lpthread -c main.c
+	$(CC) -lpthread -pthread -c main.c
 
 student.o: student.c ta.h
-	$(CC) -lpthread -c student.c
+	$(CC) -lpthread -pthread -c student.c
 
 ta.o: ta.c ta.h
-	$(CC) -lpthread -c ta.c
+	$(CC) -lpthread -pthread -c ta.c
 
 hangout.o: hangout.c
 	$(CC) -c hangout.c
