@@ -18,13 +18,13 @@ void init()
     student_served = 0;
 
     if (pthread_mutex_init( &mutex_lock, NULL ) != 0)
-        printf("%s\n",strerror( errno ));
+        printf( "%s\n",strerror( errno ) );
 
     if (sem_init( &student_sem, 0, 0 ) != 0)
-        printf("error init students_sem\n"); 
+        printf( "error init students_sem\n" ); 
 
     if (sem_init( &ta, 0, 0 ) != 0)
-        printf("error init ta_sem\n");
+        printf( "error init ta_sem\n" );
 
     for (int i = 0; i < NUM_OF_STUDENTS; i++)
         student_id[i] = i;
@@ -43,7 +43,7 @@ void create_ta()
     pthread_create( &ta, NULL, ta_loop, NULL);
 }
 
-int main(void)
+int main( void )
 {
     int i;
 
@@ -57,8 +57,8 @@ int main(void)
     }
 
     /* when all students have finished, we will cancel the TA thread */	
-    if (pthread_cancel(ta) != 0)
-        printf("%s\n",strerror(errno));
+    if (pthread_cancel( ta ) != 0)
+        printf( "%s\n", strerror( errno ) );
 
     return 0;
 }
